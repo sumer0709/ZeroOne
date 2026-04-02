@@ -10,4 +10,6 @@ export const t = {
   orange:   '#f5a623',
   text:     '#c8e6f0',
   muted:    '#4a6070',
+  fontMono: "'JetBrains Mono', monospace",
+  fontTitle: "'Orbitron', monospace",
 }

@@ -8,6 +8,7 @@ export default function Admin() {
     points: '', round: '', hint: '', hintCost: ''
   })
   const [roundNum, setRoundNum] = useState('')
+  const [duration, setDuration] = useState('30')
   const [msg, setMsg] = useState({ text: '', ok: true })
   const [unblockTeam, setUnblockTeam] = useState('')
   const [flags, setFlags] = useState([])
@@ -36,6 +37,24 @@ export default function Admin() {
       notify(`✓ Round ${roundNum} is now active`)
     } catch {
       notify('Error activating round', false)
+    }
+  }
+
+  const handleStartTimer = async () => {
+    try {
+      await axios.post(`/api/challenges/timer/start`, { durationMinutes: Number(duration) })
+      notify(`✓ Timer started for ${duration} minutes`)
+    } catch {
+      notify('Error starting timer', false)
+    }
+  }
+
+  const handleStopTimer = async () => {
+    try {
+      await axios.post(`/api/challenges/timer/stop`)
+      notify('✓ Timer stopped')
+    } catch {
+      notify('Error stopping timer', false)
     }
   }
 
@@ -80,10 +99,12 @@ export default function Admin() {
         {/* Left column */}
         <div style={s.col}>
 
-          {/* Activate Round */}
+          {/* Round Control + Timer */}
           <div style={s.card}>
             <p style={s.cardTitle}>{'>'} ROUND_CONTROL</p>
-            <p style={s.cardSub}>Activate the next round for all participants</p>
+            <p style={s.cardSub}>Activate rounds and control the timer</p>
+
+            {/* Activate Round */}
             <div style={s.fieldWrap}>
               <label style={s.fieldLabel}>ROUND NUMBER</label>
               <input style={s.input} type="number" placeholder="e.g. 2"
@@ -92,6 +113,24 @@ export default function Admin() {
             <button style={s.btnGreen} onClick={handleActivateRound}>
               ▶ ACTIVATE ROUND
             </button>
+
+            <div style={s.divider} />
+
+            {/* Timer */}
+            <div style={s.fieldWrap}>
+              <label style={s.fieldLabel}>TIMER DURATION (minutes)</label>
+              <input style={s.input} type="number" placeholder="e.g. 30"
+                value={duration} onChange={e => setDuration(e.target.value)} />
+            </div>
+            <div style={{ display: 'flex', gap: 10 }}>
+              <button style={s.btnGreen} onClick={handleStartTimer}>
+                ▶ START TIMER
+              </button>
+              <button style={{ ...s.btnOutline, borderColor: t.red, color: t.red }}
+                onClick={handleStopTimer}>
+                ■ STOP TIMER
+              </button>
+            </div>
           </div>
 
           {/* Unblock Team */}
@@ -185,9 +224,9 @@ const s = {
   card: { background: t.surface, border: `1px solid ${t.border}`,
     borderTop: `2px solid ${t.green}`, borderRadius: 4, padding: 24,
     display: 'flex', flexDirection: 'column', gap: 16 },
-  cardTitle: { color: t.green, fontSize: 12, fontWeight: 700,
-    letterSpacing: 2, margin: 0 },
+  cardTitle: { color: t.green, fontSize: 12, fontWeight: 700, letterSpacing: 2, margin: 0 },
   cardSub: { color: t.muted, fontSize: 11, margin: 0 },
+  divider: { height: 1, background: t.border, margin: '4px 0' },
   fieldWrap: { display: 'flex', flexDirection: 'column', gap: 6, flex: 1 },
   fieldLabel: { color: t.muted, fontSize: 10, letterSpacing: 2 },
   input: { background: t.card, border: `1px solid ${t.border}`, borderRadius: 2,
@@ -201,8 +240,7 @@ const s = {
   btnOutline: { background: 'transparent', border: `1px solid ${t.green}`,
     color: t.green, borderRadius: 2, padding: '10px 20px', fontWeight: 700,
     fontSize: 12, cursor: 'pointer', fontFamily: 'monospace', letterSpacing: 1 },
-  flagList: { display: 'flex', flexDirection: 'column', gap: 6,
-    maxHeight: 200, overflowY: 'auto' },
+  flagList: { display: 'flex', flexDirection: 'column', gap: 6, maxHeight: 200, overflowY: 'auto' },
   flagRow: { padding: '6px 8px', background: t.card, borderRadius: 2 },
   noFlags: { color: t.muted, fontSize: 12, margin: 0 },
   msgBar: { margin: '0 24px 24px', padding: '12px 20px', border: '1px solid',

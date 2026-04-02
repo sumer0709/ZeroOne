@@ -56,5 +56,25 @@ router.post('/round/activate', async (req, res) => {
     res.status(500).json({ message: err.message })
   }
 })
+router.post('/timer/start', async (req, res) => {
+  const { durationMinutes } = req.body
+  const endsAt = new Date(Date.now() + durationMinutes * 60 * 1000)
+  await Round.findOneAndUpdate(
+    { isActive: true },
+    { timerEndsAt: endsAt, timerStarted: true }
+  )
+  req.app.get('io').emit('timerStart', { endsAt, durationMinutes })
+  res.json({ message: 'Timer started', endsAt })
+})
+
+// Stop timer
+router.post('/timer/stop', async (req, res) => {
+  await Round.findOneAndUpdate(
+    { isActive: true },
+    { timerStarted: false }
+  )
+  req.app.get('io').emit('timerStop')
+  res.json({ message: 'Timer stopped' })
+})
 
 export default router

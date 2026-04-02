@@ -27,7 +27,7 @@ export default function Sidebar() {
       {/* Timer */}
       <div style={s.block}>
         <p style={s.label}>{'> TIME_REMAINING'}</p>
-        <Timer durationMinutes={60} />
+        <Timer />
       </div>
 
       {/* Team status */}

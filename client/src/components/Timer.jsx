@@ -1,15 +1,45 @@
 import { useEffect, useState } from 'react'
+import socket from '../socket'
 import { t } from '../theme'
 
-export default function Timer({ durationMinutes = 60 }) {
-  const [timeLeft, setTimeLeft] = useState(durationMinutes * 60)
+export default function Timer() {
+  const [timeLeft, setTimeLeft] = useState(null)
+  const [running, setRunning] = useState(false)
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTimeLeft(prev => prev <= 0 ? 0 : prev - 1)
-    }, 1000)
-    return () => clearInterval(interval)
+    socket.on('timerStart', ({ endsAt }) => {
+      setRunning(true)
+      const end = new Date(endsAt).getTime()
+      const update = () => {
+        const diff = Math.max(0, Math.floor((end - Date.now()) / 1000))
+        setTimeLeft(diff)
+        if (diff <= 0) setRunning(false)
+      }
+      update()
+      const interval = setInterval(update, 1000)
+      socket._timerInterval = interval
+    })
+
+    socket.on('timerStop', () => {
+      setRunning(false)
+      setTimeLeft(null)
+      clearInterval(socket._timerInterval)
+    })
+
+    return () => {
+      socket.off('timerStart')
+      socket.off('timerStop')
+      clearInterval(socket._timerInterval)
+    }
   }, [])
+
+  if (timeLeft === null) {
+    return (
+      <div style={{ ...s.timer, color: t.muted, fontSize: 18 }}>
+        TIMER_IDLE
+      </div>
+    )
+  }
 
   const hrs = String(Math.floor(timeLeft / 3600)).padStart(2, '0')
   const mins = String(Math.floor((timeLeft % 3600) / 60)).padStart(2, '0')
@@ -28,6 +58,6 @@ export default function Timer({ durationMinutes = 60 }) {
 }
 
 const s = {
-  timer: { fontFamily: 'monospace', fontSize: 26, fontWeight: 900, letterSpacing: 4 },
-  warning: { color: t.red, fontSize: 10, letterSpacing: 2, margin: '4px 0 0', animation: 'pulse 1s infinite' }
+  timer: { fontFamily: t.fontMono, fontSize: 26, fontWeight: 900, letterSpacing: 4 },
+  warning: { color: t.red, fontSize: 10, letterSpacing: 2, margin: '4px 0 0' }
 }
