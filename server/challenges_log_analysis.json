@@ -1,0 +1,272 @@
+[
+  {
+    "title": "Log Analysis Q1",
+    "description": "Which user repeatedly failed login attempts throughout the logs?\n\nAnalyze '150log.txt' in the terminal to find the answer.",
+    "type": "mcq",
+    "answer": "B",
+    "options": [
+      "User_09\r",
+      "User_02\r",
+      "User_14\r",
+      "User_30"
+    ],
+    "points": 50,
+    "round": 4,
+    "hint": {
+      "text": "Use 'grep' to filter the logs for specific users or actions.",
+      "cost": 10
+    }
+  },
+  {
+    "title": "Log Analysis Q2",
+    "description": "Which IP address is associated with repeated failed logins?\n\nAnalyze '150log.txt' in the terminal to find the answer.",
+    "type": "mcq",
+    "answer": "B",
+    "options": [
+      "192.168.1.32\r",
+      "192.168.1.11\r",
+      "192.168.1.59\r",
+      "192.168.1.45"
+    ],
+    "points": 50,
+    "round": 4,
+    "hint": {
+      "text": "Use 'grep' to filter the logs for specific users or actions.",
+      "cost": 10
+    }
+  },
+  {
+    "title": "Log Analysis Q3",
+    "description": "What does \"LOGIN_SUCCESS\" indicate?\n\nAnalyze '150log.txt' in the terminal to find the answer.",
+    "type": "mcq",
+    "answer": "C",
+    "options": [
+      "Failed login\r",
+      "Unauthorized access\r",
+      "Successful authentication\r",
+      "System error"
+    ],
+    "points": 50,
+    "round": 4,
+    "hint": {
+      "text": "Use 'grep' to filter the logs for specific users or actions.",
+      "cost": 10
+    }
+  },
+  {
+    "title": "Log Analysis Q4",
+    "description": "Which action represents downloading a file?\n\nAnalyze '150log.txt' in the terminal to find the answer.",
+    "type": "mcq",
+    "answer": "C",
+    "options": [
+      "ACCESS_SETTINGS\r",
+      "REQUEST_FILE\r",
+      "DOWNLOAD\r",
+      "UPLOAD_FILE"
+    ],
+    "points": 50,
+    "round": 4,
+    "hint": {
+      "text": "Use 'grep' to filter the logs for specific users or actions.",
+      "cost": 10
+    }
+  },
+  {
+    "title": "Log Analysis Q5",
+    "description": "What does \"ACCESS_DENIED\" mean?\n\nAnalyze '150log.txt' in the terminal to find the answer.",
+    "type": "mcq",
+    "answer": "C",
+    "options": [
+      "Access granted\r",
+      "Login successful\r",
+      "Permission restricted\r",
+      "File uploaded\r"
+    ],
+    "points": 50,
+    "round": 4,
+    "hint": {
+      "text": "Use 'grep' to filter the logs for specific users or actions.",
+      "cost": 10
+    }
+  },
+  {
+    "title": "Log Analysis Q6",
+    "description": "Which user accessed \"/admin_panel\" but was denied?\n\nAnalyze '150log.txt' in the terminal to find the answer.",
+    "type": "mcq",
+    "answer": "D",
+    "options": [
+      "User_22\r",
+      "User_28\r",
+      "User_30\r",
+      "All of the above"
+    ],
+    "points": 50,
+    "round": 4,
+    "hint": {
+      "text": "Use 'grep' to filter the logs for specific users or actions.",
+      "cost": 10
+    }
+  },
+  {
+    "title": "Log Analysis Q7",
+    "description": "What pattern is visible in User_02 activity?\n\nAnalyze '150log.txt' in the terminal to find the answer.",
+    "type": "mcq",
+    "answer": "B",
+    "options": [
+      "Frequent successful logins\r",
+      "Repeated failed login attempts\r",
+      "File downloads\r",
+      "Upload activity"
+    ],
+    "points": 50,
+    "round": 4,
+    "hint": {
+      "text": "Use 'grep' to filter the logs for specific users or actions.",
+      "cost": 10
+    }
+  },
+  {
+    "title": "Log Analysis Q8",
+    "description": "Which type of action appears most frequently overall?\n\nAnalyze '150log.txt' in the terminal to find the answer.",
+    "type": "mcq",
+    "answer": "C",
+    "options": [
+      "ERROR\r",
+      "WARN\r",
+      "INFO\r",
+      "DEBUG"
+    ],
+    "points": 50,
+    "round": 4,
+    "hint": {
+      "text": "Use 'grep' to filter the logs for specific users or actions.",
+      "cost": 10
+    }
+  },
+  {
+    "title": "Log Analysis Q9",
+    "description": "Which action indicates uploading data to the server?\n\nAnalyze '150log.txt' in the terminal to find the answer.",
+    "type": "mcq",
+    "answer": "C",
+    "options": [
+      "DOWNLOAD\r",
+      "REQUEST_FILE\r",
+      "UPLOAD_FILE\r",
+      "ACCESS_REPORTS"
+    ],
+    "points": 50,
+    "round": 4,
+    "hint": {
+      "text": "Use 'grep' to filter the logs for specific users or actions.",
+      "cost": 10
+    }
+  },
+  {
+    "title": "Log Analysis Q10",
+    "description": "Which user performed both LOGIN_SUCCESS and ACCESS_DENIED actions?\n\nAnalyze '150log.txt' in the terminal to find the answer.",
+    "type": "mcq",
+    "answer": "D",
+    "options": [
+      "User_28\r",
+      "User_13\r",
+      "User_05\r",
+      "All of the above\r"
+    ],
+    "points": 50,
+    "round": 4,
+    "hint": {
+      "text": "Use 'grep' to filter the logs for specific users or actions.",
+      "cost": 10
+    }
+  },
+  {
+    "title": "Log Analysis Q11",
+    "description": "What type of cyber attack is most likely indicated in the logs?\n\nAnalyze '150log.txt' in the terminal to find the answer.",
+    "type": "mcq",
+    "answer": "C",
+    "options": [
+      "Phishing\r",
+      "SQL Injection\r",
+      "Brute-force attack\r",
+      "Malware"
+    ],
+    "points": 50,
+    "round": 4,
+    "hint": {
+      "text": "Use 'grep' to filter the logs for specific users or actions.",
+      "cost": 10
+    }
+  },
+  {
+    "title": "Log Analysis Q12",
+    "description": "Which resource is most frequently denied access?\n\nAnalyze '150log.txt' in the terminal to find the answer.",
+    "type": "mcq",
+    "answer": "D",
+    "options": [
+      "/admin_panel\r",
+      "/root\r",
+      "/secure_data\r",
+      "All are frequent"
+    ],
+    "points": 50,
+    "round": 4,
+    "hint": {
+      "text": "Use 'grep' to filter the logs for specific users or actions.",
+      "cost": 10
+    }
+  },
+  {
+    "title": "Log Analysis Q13",
+    "description": "Which user appears multiple times performing DOWNLOAD actions?\n\nAnalyze '150log.txt' in the terminal to find the answer.",
+    "type": "mcq",
+    "answer": "D",
+    "options": [
+      "User_28\r",
+      "User_04\r",
+      "User_10\r",
+      "All of the above"
+    ],
+    "points": 50,
+    "round": 4,
+    "hint": {
+      "text": "Use 'grep' to filter the logs for specific users or actions.",
+      "cost": 10
+    }
+  },
+  {
+    "title": "Log Analysis Q14",
+    "description": "What is the best way to analyze such logs efficiently?\n\nAnalyze '150log.txt' in the terminal to find the answer.",
+    "type": "mcq",
+    "answer": "C",
+    "options": [
+      "Read randomly\r",
+      "Focus only on INFO logs\r",
+      "Identify patterns and repeated entries\r",
+      "Ignore timestamps"
+    ],
+    "points": 50,
+    "round": 4,
+    "hint": {
+      "text": "Use 'grep' to filter the logs for specific users or actions.",
+      "cost": 10
+    }
+  },
+  {
+    "title": "Log Analysis Q15",
+    "description": "Which behavior is most suspicious?\n\nAnalyze '150log.txt' in the terminal to find the answer.",
+    "type": "mcq",
+    "answer": "B",
+    "options": [
+      "Single login success\r",
+      "Repeated login failures from same IP\r",
+      "Accessing dashboard\r",
+      "Downloading files"
+    ],
+    "points": 50,
+    "round": 4,
+    "hint": {
+      "text": "Use 'grep' to filter the logs for specific users or actions.",
+      "cost": 10
+    }
+  }
+]
