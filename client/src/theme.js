@@ -1,0 +1,13 @@
+export const t = {
+  bg:       '#020408',
+  surface:  '#060d14',
+  card:     '#0a1520',
+  border:   '#0a2a1a',
+  green:    '#00ff41',
+  greenDim: '#00c853',
+  lime:     '#76ff03',
+  red:      '#ff3c6e',
+  orange:   '#f5a623',
+  text:     '#c8e6f0',
+  muted:    '#4a6070',
+}

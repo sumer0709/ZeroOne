@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./server
+    container_name: zerone-backend
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=your_mongo_uri
+      - JWT_SECRET=your_secret
+    depends_on:
+      - mongo
+
+  frontend:
+    build: ./client
+    container_name: zerone-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  mongo:
+    image: mongo
+    container_name: zerone-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
