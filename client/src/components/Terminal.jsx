@@ -39,7 +39,8 @@ export default function TerminalComponent() {
     term.writeln('\x1b[36m╔══════════════════════════════════════╗\x1b[0m')
     term.writeln('\x1b[36m║       ZerOne — Secure Terminal       ║\x1b[0m')
     term.writeln('\x1b[36m╚══════════════════════════════════════╝\x1b[0m')
-    term.writeln('\x1b[33mAllowed: openssl, base64, python3 -c, echo, cat\x1b[0m')
+    term.writeln('\x1b[33mAllowed: openssl, base64, grep, awk, cat, ls, wc\x1b[0m')
+    term.writeln('\x1b[32mHint: Use "ls" to see available challenge data.\x1b[0m')
     term.writeln('')
     prompt(term)
 
